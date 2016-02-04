@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import os
-from distutils.core import setup
+from setuptools import find_packages, setup
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 
@@ -12,14 +12,7 @@ setup(
     name='django-alipay',
     version='0.1',
     platforms=['noarch'],
-    packages=[
-        'alipay',
-        'alipay.create_direct_pay_by_user',
-        'alipay.create_direct_pay_by_user.dpn',
-        'alipay.create_partner_trade_by_buyer',
-        'alipay.create_partner_trade_by_buyer.ptn',
-        'alipay.send_goods_confirm_by_platform',
-    ],
+    packages=find_packages(),
     include_package_data=True,
     license='GPLv3 License',
     description='alipay api for django',
