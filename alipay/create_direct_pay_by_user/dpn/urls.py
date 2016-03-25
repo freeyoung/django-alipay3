@@ -1,7 +1,7 @@
+from django.conf.urls import url
 
-from django.conf.urls import patterns, url
+from alipay.create_direct_pay_by_user.dpn import views
 
-urlpatterns = patterns('alipay.create_direct_pay_by_user.dpn.views',
-    url(r'^$', 'dpn', {'item_check_callable':None}, name='alipay-dpn'),
-)
-
+urlpatterns = [
+    url(r'^$', views.dpn, {'item_check_callable': None}, name='alipay-dpn'),
+]

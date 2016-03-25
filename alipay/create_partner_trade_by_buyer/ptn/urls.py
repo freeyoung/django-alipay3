@@ -1,7 +1,7 @@
+from django.conf.urls import url
 
-from django.conf.urls import patterns, url
+from alipay.create_partner_trade_by_buyer.ptn import views
 
-urlpatterns = patterns('alipay.create_partner_trade_by_buyer.ptn.views',
-    url(r'^$', 'ptn', {'item_check_callable':None}, name='alipay-ptn'),
-)
-
+urlpatterns = [
+    url(r'^$', views.ptn, {'item_check_callable': None}, name='alipay-ptn'),
+]
