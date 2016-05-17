@@ -10,7 +10,7 @@ from alipay.create_direct_pay_by_user.dpn.signals import alipay_dpn_flagged, ali
 
 class AliPayDPN(AliPayBaseModel):
     """
-    AliPay DPN 
+    AliPay DPN
     """
     gmt_close = models.DateTimeField(blank=True, null=True)
     extra_common_param = models.CharField(blank=True, null=True, max_length=256)

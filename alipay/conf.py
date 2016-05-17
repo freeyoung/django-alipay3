@@ -59,6 +59,7 @@ TRADE_STATUS = (
         'WAIT_BUYER_PAY',           #等待买家付款
         'WAIT_SELLER_SEND_GOODS',   #买家已付款，等待卖家发货
         'WAIT_BUYER_CONFIRM_GOODS', #卖家已发货，等待买家收货
+        'TRADE_SUCCESS',            #即时到账接口，钱已到达卖家账户
         'TRADE_FINISHED',           #买家已收货，交易完成
         'TRADE_CLOSED',             #交易中途关闭（已结束，未成功完成）
         'COD_WAIT_SELLER_SEND_GOODS',   # 等待卖家发货（货到付款）
