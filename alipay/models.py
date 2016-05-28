@@ -4,7 +4,7 @@ import urllib2
 
 from django.db import models
 from alipay import conf
-from alipay.helpers import duplicate_out_trade_no, address_in_network
+from alipay.helpers import duplicate_out_trade_no
 
 class AliPayBaseModel(models.Model):
     """
@@ -77,8 +77,6 @@ class AliPayBaseModel(models.Model):
         self._verify_postback()
         if not self.flag:
             if self.is_transaction():
-                if not address_in_network(self.ipaddress, conf.ALIPAY_NOTIFY_IP):
-                    self.set_flag("Invalid alipay notify IP. (%s)" % self.ipaddress)
                 if duplicate_out_trade_no(self):
                     self.set_flag("Duplicate out trade no. (%s)" % self.out_trade_no)
                 if self.seller_id != conf.SELLER_ID:
