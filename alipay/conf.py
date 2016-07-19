@@ -10,7 +10,7 @@ PRIVATE_KEY = getattr(settings, 'ALIPAY_PRIVATE_KEY', 'unknown key')
 SELLER_ID = getattr(settings, 'ALIPAY_SELLER_ID', 'unknow seller id')
 
 # 支付宝网关
-ALIPAY_GATEWAY = 'https://mapi.alipay.com/gateway.do'
+ALIPAY_GATEWAY = getattr(settings, 'ALIPAY_GATEWAY', 'https://mapi.alipay.com/gateway.do')
 
 # 支付宝通知 IP
 ALIPAY_NOTIFY_IP = getattr(settings, 'ALIPAY_NOTIFY_IP',('121.0.26.0/23', '110.75.128.0/19'))
