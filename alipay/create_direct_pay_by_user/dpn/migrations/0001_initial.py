@@ -13,6 +13,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AliPayDPN',
             fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('notify_time', models.DateTimeField(blank=True, null=True)),
                 ('notify_type', models.CharField(blank=True, null=True, max_length=32)),
                 ('notify_id', models.CharField(blank=True, null=True, max_length=64)),
