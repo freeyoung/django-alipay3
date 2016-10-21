@@ -44,7 +44,7 @@ def make_sign(data, private_key=conf.PRIVATE_KEY):
 
 
 def duplicate_out_trade_no(trade_obj):
-    query = trade_obj._default_manager.filter(out_trade_no=trade_obj.out_trade_no)
+    query = trade_obj.__class__.objects.filter(out_trade_no=trade_obj.out_trade_no)
     query = query.filter(trade_status=trade_obj.trade_status)
     return query.count() > 0
 
