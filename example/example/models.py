@@ -1,5 +1,5 @@
 
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import datetime
 from django.contrib.auth.models import User, Group
 from django.contrib.sites.models import Site
@@ -26,7 +26,7 @@ def alipay_send_goods(trade_obj):
     form = AliPaySendGoodsForm(auto_id=False, initial=alipay_dict)
     data = get_form_data(form)
     data['sign'] = make_sign(data)
-    return urllib2.urlopen(form.get_action(), urlencode(data)).read()
+    return urllib.request.urlopen(form.get_action(), urlencode(data)).read()
 
 
 def alipay_dpn_check(dpn_obj):

@@ -19,14 +19,14 @@ def ptn(request, item_check_callable=None):
     post_data = request.POST.copy()
         # cleanup data
     data = {}
-    for k,v in post_data.items():
+    for k,v in list(post_data.items()):
         data[k] = v
         # valid data
     form = AliPayPTNForm(data)
     if form.is_valid():
         try:
             ptn_obj = form.save(commit=False)
-        except Exception, e:
+        except Exception as e:
             flag = 'Exception while processing: %s'% e
 
     else:

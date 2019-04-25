@@ -10,7 +10,7 @@ from alipay.create_partner_trade_by_buyer.forms import AliPayPartnerTradeForm
 from alipay.create_partner_trade_by_buyer.ptn.models import AliPayPTN
 from alipay.helpers import make_sign, get_form_data
 
-from forms import PaymentForm
+from .forms import PaymentForm
 
 
 def asks_for_money(request):

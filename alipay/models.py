@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 from django.db import models
 from alipay import conf
@@ -102,7 +102,7 @@ class AliPayBaseModel(models.Model):
         self.ipaddress = request.META.get('REMOTE_ADDR', '')
 
     def _postback(self):
-        return urllib2.urlopen(conf.ALIPAY_GATEWAY,'service=notify_verify&partner=%s&notify_id=%s'% (conf.PARTNER, self.notify_id)).read()
+        return urllib.request.urlopen(conf.ALIPAY_GATEWAY,'service=notify_verify&partner=%s&notify_id=%s'% (conf.PARTNER, self.notify_id)).read()
 
     def _verify_postback(self):
         if self.response != "true":

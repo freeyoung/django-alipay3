@@ -13,7 +13,7 @@ class ValueHiddenInput(forms.HiddenInput):
     """
     def render(self, name, value, attrs=None):
         if value is None:
-            return u''
+            return ''
         else:
             return super(ValueHiddenInput, self).render(name, value, attrs)
 
@@ -28,5 +28,5 @@ class ReservedValueHiddenInput(ValueHiddenInput):
         final_attrs = self.build_attrs(attrs, type=self.input_type)
         if value != '':
             final_attrs['value'] = force_unicode(value)
-        return mark_safe(u'<input%s />' % flatatt(final_attrs))
+        return mark_safe('<input%s />' % flatatt(final_attrs))
 

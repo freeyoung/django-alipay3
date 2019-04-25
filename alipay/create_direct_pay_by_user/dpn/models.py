@@ -1,7 +1,5 @@
 # -*- coding:utf-8 -*-
 
-import urllib2
-
 from django.db import models
 from alipay import conf
 from alipay.models import AliPayBaseModel

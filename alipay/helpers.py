@@ -3,7 +3,7 @@
 import hashlib
 import socket
 import struct
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 from alipay import conf
 
@@ -17,17 +17,17 @@ def address_in_network(ip, net):
     ipaddr = struct.unpack('=L', socket.inet_aton(ip))[0]
     for cur_net in net:
         netaddr, bits = cur_net.split('/')
-        netmask = struct.unpack('=L', socket.inet_aton(netaddr))[0] & ((2L << int(bits) - 1) - 1)
+        netmask = struct.unpack('=L', socket.inet_aton(netaddr))[0] & ((2 << int(bits) - 1) - 1)
         if ipaddr & netmask == netmask:
             return True
     return False
 
 
 def make_sign(data, private_key=conf.PRIVATE_KEY):
-    print data
+    print(data)
     query_list = []
     hash = data.get('sign_type', 'MD5')
-    for k, v in data.items():
+    for k, v in list(data.items()):
         if k == 'sign' or k == 'sign_type':
             continue
         query_list.append('%s=%s' % (k, v))
@@ -58,7 +58,7 @@ def get_form_data(form):
     if form.is_bound:
         data = form.data
     else:   # unbound data
-        for name, field in form.fields.items():
+        for name, field in list(form.fields.items()):
             if name in form.initial:
                 data[name] = form.initial[name]
             elif field.initial:
@@ -71,6 +71,6 @@ def urldecode(query):
     query_list = query.split('&')
     for kv in query_list:
         if kv.find('='):
-            k, v = map(urllib.unquote_plus, kv.split('='))
+            k, v = list(map(urllib.parse.unquote_plus, kv.split('=')))
             data[k] = v
     return data

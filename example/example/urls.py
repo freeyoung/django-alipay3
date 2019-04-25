@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from models import alipay_ptn_check, alipay_dpn_check
+from .models import alipay_ptn_check, alipay_dpn_check
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin

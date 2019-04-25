@@ -22,8 +22,8 @@ class PaymentForm(forms.Form):
 
     def as_table(self):
         return self._html_output(
-            normal_row=u'<tr%(html_class_attr)s><th>%(label)s</th><td>%(field)s</td><td>%(errors)s</td></tr>',
-            error_row=u'%s',
-            row_ender=u'',
-            help_text_html=u'%s',
+            normal_row='<tr%(html_class_attr)s><th>%(label)s</th><td>%(field)s</td><td>%(errors)s</td></tr>',
+            error_row='%s',
+            row_ender='',
+            help_text_html='%s',
             errors_on_separate_row=False)
